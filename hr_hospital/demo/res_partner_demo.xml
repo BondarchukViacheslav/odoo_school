@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+        <record id="partner_mykola_amosov" model="res.partner"">
+            <field name="name">Микола Амосов</field>
+            <field name="has_medical_degree">true</field>
+         </record>
+
+        <record id="partner_oleksandr_bohomolets" model="res.partner"">
+            <field name="name">Олександр Богомолець</field>
+            <field name="has_medical_degree">true</field>
+        </record>
+
+        <record id="partner_volodymyr_filatov" model="hr.hospital.doctor">
+            <field name="name">Володимир Філатов</field>
+            <field name="has_medical_degree">true</field>
+        </record>
+
+        <record id="partner_ivan_sirko" model="res.partner">
+            <field name="name">Іван Сірко</field>
+        </record>
+
+        <record id="partner_ivan_franko" model="res.partner">
+            <field name="name">Іван Франко</field>
+        </record>
+
+        <record id="partner_taras_shevchenko" model="res.partner">
+            <field name="name">Тарас Шевченко</field>
+        </record>
+
+    </data>
+</odoo>

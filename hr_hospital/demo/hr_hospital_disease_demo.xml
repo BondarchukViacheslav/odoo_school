@@ -1,0 +1,18 @@
+<odoo>
+    <data noupdate="1">
+        <record id="patient_1" model="hr.hospital.patient">
+            <field name="name">Іван Бондаренко</field>
+            <field name="doctor_id" ref="doctor_1"/>
+        </record>
+
+        <record id="patient_2" model="hr.hospital.patient">
+            <field name="name">Олена Кравченко</field>
+            <field name="doctor_id" ref="doctor_2"/>
+        </record>
+
+        <record id="patient_3" model="hr.hospital.patient">
+            <field name="name">Сергій Ткаченко</field>
+            <field name="doctor_id" ref="doctor_1"/>
+        </record>
+    </data>
+</odoo>
