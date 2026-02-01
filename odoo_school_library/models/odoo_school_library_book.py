@@ -2,11 +2,13 @@ import logging
 
 from odoo import models, fields
 
+_logger = logging.getLogger(__name__)
+
 CONST_EXP = "Odoo school constant example"
 
-logger = logging.getLogger(__name__)
 
 class OSLBook(models.Model):
+
     _name = 'odoo.school.library.book'
     _description = 'Book'
 

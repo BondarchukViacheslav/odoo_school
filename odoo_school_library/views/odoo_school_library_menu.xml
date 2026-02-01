@@ -1,7 +1,7 @@
 <odoo>
 
     <menuitem id="odoo_school_library_main_menu"
-              web_icon="odoo_cschool_library,static/descriptions/icon.png"
+              web_icon="odoo_school_library,static/descriptions/icon_lib.png"
               name="library" sequence="300"/>
 
     <menuitem id="odoo_school_library_menu_catalog"
