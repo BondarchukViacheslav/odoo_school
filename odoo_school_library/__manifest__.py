@@ -15,6 +15,12 @@
     },
 
     'data': [
+
+    "security/ir.model.access.csv",
+
+    "views/odoo_school_library_menu.xml",
+    "views/odoo_school_library_book_views.xml",
+
     ],
 
     'demo': [
