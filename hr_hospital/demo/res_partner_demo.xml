@@ -1,18 +1,15 @@
 <odoo>
     <data>
-        <record id="partner_mykola_amosov" model="res.partner"">
+        <record id="partner_mykola_amosov" model="res.partner">
             <field name="name">Микола Амосов</field>
-            <field name="has_medical_degree">true</field>
          </record>
 
-        <record id="partner_oleksandr_bohomolets" model="res.partner"">
+        <record id="partner_oleksandr_bohomolets" model="res.partner">
             <field name="name">Олександр Богомолець</field>
-            <field name="has_medical_degree">true</field>
         </record>
 
-        <record id="partner_volodymyr_filatov" model="hr.hospital.doctor">
+        <record id="partner_volodymyr_filatov" model="res.partner">
             <field name="name">Володимир Філатов</field>
-            <field name="has_medical_degree">true</field>
         </record>
 
         <record id="partner_ivan_sirko" model="res.partner">

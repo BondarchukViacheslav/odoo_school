@@ -1,0 +1,21 @@
+<odoo>
+    <menuitem id="hr_hospital_main_menu"
+              web_icon="hr_hospital,static/description/icon.png"
+              name="Hospital" sequence="300"/>
+
+    <menuitem id="hr_hospital_menu_visit"
+              parent="hr_hospital_main_menu"
+              name="Visits" sequence="100"/>
+
+    <menuitem id="hr_hospital_menu_patient"
+              parent="hr_hospital_main_menu"
+              name="Patients" sequence="200"/>
+
+    <menuitem id="hr_hospital_menu_doctor"
+              parent="hr_hospital_main_menu"
+              name="Doctors" sequence="300"/>
+
+    <menuitem id="hr_hospital_menu_disease"
+              parent="hr_hospital_main_menu"
+              name="Disease" sequence="900"/>
+</odoo>
