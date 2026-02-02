@@ -1,19 +1,17 @@
 <odoo>
-    <data>
-        <record id="disease_infarctus_myocardii" model="hr.hospital.disease">
-            <field name="name">Інфаркт міокарда</field>
-        </record>
+    <record id="disease_infarctus_myocardii" model="hr.hospital.disease">
+        <field name="name">Інфаркт міокарда</field>
+    </record>
 
-        <record id="disease_covid19" model="hr.hospital.disease">
-            <field name="name">Covid-19</field>
-        </record>
+    <record id="disease_covid19" model="hr.hospital.disease">
+        <field name="name">Covid-19</field>
+    </record>
 
-        <record id="disease_mra" model="hr.hospital.disease">
-            <field name="name">ГРЗ</field>
-        </record>
+    <record id="disease_mra" model="hr.hospital.disease">
+        <field name="name">ГРЗ</field>
+    </record>
 
-        <record id="disease_cataracta" model="hr.hospital.disease">
-            <field name="name">Катаракта</field>
-        </record>
-    </data>
+    <record id="disease_cataracta" model="hr.hospital.disease">
+        <field name="name">Катаракта</field>
+    </record>
 </odoo>

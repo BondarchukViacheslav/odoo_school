@@ -8,6 +8,7 @@
                 <field name="visit_date"/>
                 <field name="patient_id"/>
                 <field name="doctor_id"/>
+                <field name="disease_id"/>
                 <field name="diagnosis"/>
             </list>
         </field>
@@ -43,9 +44,9 @@
         <field name="view_mode">list,form</field>
     </record>
 
-<!--    <menuitem id="hr_hospital_menu_visit"-->
-<!--              action="action_hr_hospital_visit_window"-->
-<!--              parent="hr_hospital_menu_catalog"-->
-<!--              name="Visit" sequence="200"/>-->
+    <!--    <menuitem id="hr_hospital_menu_visit"-->
+    <!--              action="action_hr_hospital_visit_window"-->
+    <!--              parent="hr_hospital_menu_catalog"-->
+    <!--              name="Visit" sequence="200"/>-->
 
 </odoo>

@@ -1,33 +1,34 @@
 <odoo>
-    <data>
-        <record id="partner_mykola_amosov" model="res.partner">
-            <field name="name">Микола Амосов</field>
-         </record>
+    <record id="partner_mykola_amosov" model="res.partner">
+        <field name="name">Микола Амосов</field>
+        <field name="is_doctor">1</field>
+    </record>
 
-        <record id="partner_oleksandr_bohomolets" model="res.partner">
-            <field name="name">Олександр Богомолець</field>
-        </record>
+    <record id="partner_oleksandr_bohomolets" model="res.partner">
+        <field name="name">Олександр Богомолець</field>
+        <field name="is_doctor">1</field>
+    </record>
 
-        <record id="partner_volodymyr_filatov" model="res.partner">
-            <field name="name">Володимир Філатов</field>
-        </record>
+    <record id="partner_volodymyr_filatov" model="res.partner">
+        <field name="name">Володимир Філатов</field>
+        <field name="is_doctor">1</field>
+    </record>
 
-        <record id="partner_vasyl_netiazhenko" model="res.partner">
-            <field name="name">Василь Нетяженко</field>
-        </record>
+    <record id="partner_vasyl_netiazhenko" model="res.partner">
+        <field name="name">Василь Нетяженко</field>
+        <field name="is_doctor">1</field>
+    </record>
 
+    <record id="partner_ivan_sirko" model="res.partner">
+        <field name="name">Іван Сірко</field>
+    </record>
 
-        <record id="partner_ivan_sirko" model="res.partner">
-            <field name="name">Іван Сірко</field>
-        </record>
+    <record id="partner_ivan_franko" model="res.partner">
+        <field name="name">Іван Франко</field>
+    </record>
 
-        <record id="partner_ivan_franko" model="res.partner">
-            <field name="name">Іван Франко</field>
-        </record>
+    <record id="partner_taras_shevchenko" model="res.partner">
+        <field name="name">Тарас Шевченко</field>
+    </record>
 
-        <record id="partner_taras_shevchenko" model="res.partner">
-            <field name="name">Тарас Шевченко</field>
-        </record>
-
-    </data>
 </odoo>
