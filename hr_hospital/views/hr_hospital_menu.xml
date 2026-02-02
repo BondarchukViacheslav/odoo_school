@@ -6,11 +6,21 @@
 
     <menuitem id="hr_hospital_menu_catalog"
               parent="hr_hospital_main_menu"
-              name="Visits"
+              name="Catalog"
               sequence="10"/>
+
+    <menuitem id="hr_hospital_menu_patient"
+              parent="hr_hospital_main_menu"
+              name="Patients"
+              sequence="20"/>
+
+    <menuitem id="hr_hospital_menu_doctor"
+              parent="hr_hospital_main_menu"
+              name="Doctors"
+              sequence="30"/>
 
     <menuitem id="hr_hospital_menu_main_settings"
               parent="hr_hospital_main_menu"
               name="Settings"
-              sequence="20"/>
+              sequence="40"/>
 </odoo>

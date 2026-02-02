@@ -40,7 +40,7 @@
 
     <menuitem id="hr_hospital_menu_patient"
               action="action_hr_hospital_patient_window"
-              parent="hr_hospital_patient_menu_patient"
-              name="Patient" sequence="200"/>
+              parent="hr_hospital_menu_catalog"
+              name="Patient" sequence="300"/>
 
 </odoo>
