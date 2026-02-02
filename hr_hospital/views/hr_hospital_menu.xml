@@ -2,25 +2,31 @@
     <menuitem id="hr_hospital_main_menu"
               name="Hospital"
               web_icon="hr_hospital,static/description/icon.png"
-              sequence="1"/>
+              sequence="10"/>
 
-    <menuitem id="hr_hospital_menu_catalog"
+    <menuitem id="hr_hospital_menu_visit"
               parent="hr_hospital_main_menu"
-              name="Catalog"
+              name="Visits"
+              action="hr_hospital_visit_action"
               sequence="10"/>
 
     <menuitem id="hr_hospital_menu_patient"
               parent="hr_hospital_main_menu"
               name="Patients"
+              action="hr_hospital_patient_action"
               sequence="20"/>
 
     <menuitem id="hr_hospital_menu_doctor"
               parent="hr_hospital_main_menu"
               name="Doctors"
+              action="hr_hospital_doctor_action"
               sequence="30"/>
 
-    <menuitem id="hr_hospital_menu_main_settings"
+    <menuitem id="hr_hospital_menu_disease"
               parent="hr_hospital_main_menu"
-              name="Settings"
+              name="Disease"
+              action="hr_hospital_disease_action"
               sequence="40"/>
+
 </odoo>
+

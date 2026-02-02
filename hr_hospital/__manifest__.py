@@ -18,11 +18,11 @@
 
         'security/ir.model.access.csv',
 
-        'views/hr_hospital_menu.xml',
         'views/hr_hospital_visit_view.xml',
         'views/hr_hospital_doctor_view.xml',
         'views/hr_hospital_patient_view.xml',
         'views/hr_hospital_disease_view.xml',
+        'views/hr_hospital_menu.xml',
     ],
     'demo': [
         'demo/res_partner_demo.xml',
