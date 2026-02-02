@@ -7,26 +7,28 @@
             <list>
                 <field name="visit_date"/>
                 <field name="patient_id"/>
-                <field name="diagnosis"/>
-                <field name="diagnosis"/>
+                <field name="doctor_id"/>
                 <field name="diagnosis"/>
             </list>
         </field>
     </record>
 
-    <record id="hr_hospital_disease_form" model="ir.ui.view">
-        <field name="name">hr.hospital.disease.form ()</field>
-        <field name="model">hr.hospital.disease</field>
+    <record id="hr_hospital_visit_form" model="ir.ui.view">
+        <field name="name">hr.hospital.visit.form ()</field>
+        <field name="model">hr.hospital.visit</field>
         <field name="arch" type="xml">
             <form>
                 <header></header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="visit_date"/>
+                            <field name="patient_id"/>
                         </group>
                         <group>
-                            <field name="description"/>
+                            <field name="doctor_id"/>
+                            <field name="disease_id"/>
+                            <field name="diagnosis"/>
                         </group>
                     </group>
                 </sheet>
@@ -34,16 +36,16 @@
         </field>
     </record>
 
-    <record id="action_hr_hospital_disease_window" model="ir.actions.act_window">
-        <field name="name">Disease</field>
+    <record id="action_hr_hospital_visit_window" model="ir.actions.act_window">
+        <field name="name">Visit</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hr.hospital.disease</field>
+        <field name="res_model">hr.hospital.visit</field>
         <field name="view_mode">list,form</field>
     </record>
 
-    <menuitem id="hr.hospital_menu_disease"
-              action="action_hr_hospital_disease_window"
-              parent="hr_hospital_patient_menu_disease"
-              name="Disease" sequence="200"/>
+    <menuitem id="hr_hospital_menu_visit"
+              action="action_hr_hospital_visit_window"
+              parent="hr_hospital_menu_catalog"
+              name="Visit" sequence="200"/>
 
 </odoo>

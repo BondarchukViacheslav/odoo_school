@@ -22,10 +22,10 @@
 #        'views/hr_hospital_doctor_view.xml',
 #        'views/hr_hospital_patient_view.xml',
 #        'views/hr_hospital_disease_view.xml',
-#        'views/hr_hospital_visit_view.xml',
+        'views/hr_hospital_visit_view.xml',
     ],
     'demo': [
-        'demo/res_partner_demo.xml',
+#        'demo/res_partner_demo.xml',
 #        'demo/hr_hospital_doctor_demo.xml',
 #        'demo/hr_hospital_patient_demo.xml',
 #        'demo/hr_hospital_disease_demo.xml',
@@ -33,6 +33,7 @@
     ],
 
     'installable': True,
+    'application': True,
     'auto_install': False,
 
     'images': [

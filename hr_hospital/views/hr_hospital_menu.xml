@@ -1,21 +1,16 @@
 <odoo>
     <menuitem id="hr_hospital_main_menu"
+              name="Hospital"
               web_icon="hr_hospital,static/description/icon.png"
-              name="Hospital" sequence="300"/>
+              sequence="1"/>
 
-    <menuitem id="hr_hospital_menu_visit"
+    <menuitem id="hr_hospital_menu_catalog"
               parent="hr_hospital_main_menu"
-              name="Visits" sequence="100"/>
+              name="Visits"
+              sequence="10"/>
 
-    <menuitem id="hr_hospital_menu_patient"
+    <menuitem id="hr_hospital_menu_main_settings"
               parent="hr_hospital_main_menu"
-              name="Patients" sequence="200"/>
-
-    <menuitem id="hr_hospital_menu_doctor"
-              parent="hr_hospital_main_menu"
-              name="Doctors" sequence="300"/>
-
-    <menuitem id="hr_hospital_menu_disease"
-              parent="hr_hospital_main_menu"
-              name="Disease" sequence="900"/>
+              name="Settings"
+              sequence="20"/>
 </odoo>
