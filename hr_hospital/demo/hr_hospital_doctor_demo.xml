@@ -1,18 +1,24 @@
 <odoo>
 
     <record id="dr_mykola_amosov" model="hr.hospital.doctor">
-        <field name="partner_id" ref="partner_mykola_amosov"/>
+        <field name="res_partner_id" ref="partner_mykola_amosov"/>
         <field name="specialty">Кардіохірург</field>
     </record>
 
     <record id="dr_oleksandr_bohomolets" model="hr.hospital.doctor">
-        <field name="partner_id" ref="partner_oleksandr_bohomolets"/>
+        <field name="res_partner_id" ref="partner_oleksandr_bohomolets"/>
         <field name="specialty">Патофізіолог</field>
     </record>
 
     <record id="dr_volodymyr_filatov" model="hr.hospital.doctor">
-        <field name="partner_id" ref="partner_volodymyr_filatov"/>
+        <field name="res_partner_id" ref="partner_volodymyr_filatov"/>
         <field name="specialty">Офтальмолог</field>
     </record>
+
+    <record id="dr_vasyl_netiazhenko" model="hr.hospital.doctor">
+        <field name="res_partner_id" ref="partner_vasyl_netiazhenko"/>
+        <field name="specialty">Терапевт, кардіолог.</field>
+    </record>
+
 
 </odoo>

@@ -1,13 +1,13 @@
 <odoo>
-    <record id="patient_1" model="hr.hospital.patient">
-        <field name="name">Іван Бондаренко</field>
+    <record id="patient_ivan_sirko" model="hr.hospital.patient">
+        <field name="res_partner_id" ref="partner_ivan_sirko"/>
     </record>
 
-    <record id="patient_2" model="hr.hospital.patient">
-        <field name="name">Олена Кравченко</field>
+    <record id="patient_ivan_franko" model="hr.hospital.patient">
+        <field name="res_partner_id" ref="partner_ivan_franko"/>
     </record>
 
-    <record id="patient_3" model="hr.hospital.patient">
-        <field name="name">Сергій Ткаченко</field>
+    <record id="patient_taras_shevchenko" model="hr.hospital.patient">
+        <field name="res_partner_id" ref="partner_taras_shevchenko"/>
     </record>
 </odoo>

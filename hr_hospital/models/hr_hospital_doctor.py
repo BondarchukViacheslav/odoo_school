@@ -17,5 +17,5 @@ class HRHospitalDooctor(models.Model):
                        readonly=False)
 
 #    name = fields.Char(string='Full Name', required=True)
-    description = fields.Char(string='Specialty',
-                              required=True)
+    specialty = fields.Char(string='Specialty',
+                            required=True)

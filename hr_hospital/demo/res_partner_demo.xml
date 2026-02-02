@@ -12,6 +12,11 @@
             <field name="name">Володимир Філатов</field>
         </record>
 
+        <record id="partner_vasyl_netiazhenko" model="res.partner">
+            <field name="name">Василь Нетяженко</field>
+        </record>
+
+
         <record id="partner_ivan_sirko" model="res.partner">
             <field name="name">Іван Сірко</field>
         </record>

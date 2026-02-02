@@ -1,0 +1,25 @@
+<odoo>
+    <record id="visit_1" model="hr.hospital.visit">
+        <field name="visit_date">2026-02-01 10:00:00</field>
+        <field name="patient_id" ref="patient_ivan_sirko"/>
+        <field name="doctor_id" ref="dr_mykola_amosov"/>
+        <field name="disease_id" ref="disease_infarctus_myocardii"/>
+        <field name="diagnosis">Біль у грудях</field>
+    </record>
+
+    <record id="visit_2" model="hr.hospital.visit">
+        <field name="visit_date">2026-02-01 12:00:00</field>
+        <field name="patient_id" ref="patient_ivan_franko"/>
+        <field name="doctor_id" ref="dr_volodymyr_filatov"/>
+        <field name="disease_id" ref="disease_cataracta"/>
+        <field name="diagnosis">Помутніння в очах</field>
+    </record>
+
+    <record id="visit_3" model="hr.hospital.visit">
+        <field name="visit_date">2026-02-01 13:00:00</field>
+        <field name="patient_id" ref="patient_taras_shevchenko"/>
+        <field name="doctor_id" ref="dr_vasyl_netiazhenko"/>
+        <field name="disease_id" ref="disease_covid19"/>
+        <field name="diagnosis">Біль у горлі. Жар</field>
+    </record>
+</odoo>
