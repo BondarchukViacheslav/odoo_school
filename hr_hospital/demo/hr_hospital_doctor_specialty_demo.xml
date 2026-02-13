@@ -1,0 +1,38 @@
+<odoo noupdate="1">
+
+    <record id="specialty_therapist" model="hr.hospital.doctor.specialty">
+        <field name="name">Therapist</field>
+        <field name="code">THER-01</field>
+        <field name="description">General practice and internal medicine.</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="specialty_surgeon" model="hr.hospital.doctor.specialty">
+        <field name="name">Surgeon</field>
+        <field name="code">SURG-02</field>
+        <field name="description">Specializes in operative procedures.</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="specialty_pediatrician" model="hr.hospital.doctor.specialty">
+        <field name="name">Pediatrician</field>
+        <field name="code">PEDI-03</field>
+        <field name="description">Medical care of infants, children, and adolescents.</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="specialty_cardiologist" model="hr.hospital.doctor.specialty">
+        <field name="name">Cardiologist</field>
+        <field name="code">CARD-04</field>
+        <field name="description">Expert in heart and blood vessel disorders.</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="specialty_neurologist" model="hr.hospital.doctor.specialty">
+        <field name="name">Neurologist</field>
+        <field name="code">NEUR-05</field>
+        <field name="description">Specializes in treating diseases of the nervous system.</field>
+        <field name="active">True</field>
+    </record>
+
+</odoo>

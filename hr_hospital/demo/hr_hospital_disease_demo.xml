@@ -1,17 +1,109 @@
-<odoo>
-    <record id="disease_infarctus_myocardii" model="hr.hospital.disease">
-        <field name="name">Інфаркт міокарда</field>
+<odoo noupdate="1">
+
+    <record id="disease_group_infectious" model="hr.hospital.disease">
+        <field name="name">Деякі інфекційні та паразитарні хвороби</field>
+        <field name="code">A00-B99</field>
+        <field name="severity">high</field>
     </record>
 
-    <record id="disease_covid19" model="hr.hospital.disease">
-        <field name="name">Covid-19</field>
+    <record id="disease_group_circulatory" model="hr.hospital.disease">
+        <field name="name">Хвороби системи кровообігу</field>
+        <field name="code">I00-I99</field>
+        <field name="severity">medium</field>
     </record>
 
-    <record id="disease_mra" model="hr.hospital.disease">
-        <field name="name">ГРЗ</field>
+    <record id="disease_sub_respiratory" model="hr.hospital.disease">
+        <field name="name">Вірусні інфекції дихальних шляхів</field>
+        <field name="code">J00-J06</field>
+        <field name="parent_id" ref="disease_group_infectious"/>
+        <field name="is_contagious">True</field>
     </record>
 
-    <record id="disease_cataracta" model="hr.hospital.disease">
-        <field name="name">Катаракта</field>
+    <record id="disease_sub_intestinal" model="hr.hospital.disease">
+        <field name="name">Кишкові інфекційні хвороби</field>
+        <field name="code">A00-A09</field>
+        <field name="parent_id" ref="disease_group_infectious"/>
+        <field name="is_contagious">True</field>
     </record>
+
+    <record id="disease_flu" model="hr.hospital.disease">
+        <field name="name">Грип, спричинений ідентифікованим вірусом грипу</field>
+        <field name="code">J10</field>
+        <field name="parent_id" ref="disease_sub_respiratory"/>
+        <field name="severity">medium</field>
+        <field name="is_contagious">True</field>
+        <field name="symptoms">Гарячка, кашель, біль у горлі, м'язовий біль</field>
+        <field name="country_ids" eval="[(4, ref('base.ua')), (4, ref('base.pl')), (4, ref('base.us'))]"/>
+    </record>
+
+    <record id="disease_cholera" model="hr.hospital.disease">
+        <field name="name">Холера</field>
+        <field name="code">A00</field>
+        <field name="parent_id" ref="disease_sub_respiratory"/>
+        <field name="severity">critical</field>
+        <field name="is_contagious">True</field>
+        <field name="country_ids" eval="[(4, ref('base.in')), (4, ref('base.br'))]"/>
+    </record>
+
+    <record id="disease_covid" model="hr.hospital.disease">
+        <field name="name">COVID-19</field>
+        <field name="code">U07.1</field>
+        <field name="parent_id" ref="disease_sub_respiratory"/>
+        <field name="severity">high</field>
+        <field name="is_contagious">True</field>
+        <field name="country_ids" eval="[(4, ref('base.ua')), (4, ref('base.it')), (4, ref('base.cn'))]"/>
+    </record>
+
+    <record id="disease_sub_ischemic" model="hr.hospital.disease">
+        <field name="name">Ішемічна хвороба серця</field>
+        <field name="code">I20-I25</field>
+        <field name="parent_id" ref="disease_group_circulatory"/>
+    </record>
+
+    <record id="disease_angina" model="hr.hospital.disease">
+        <field name="name">Стенокардія (Грудна жаба)</field>
+        <field name="code">I20</field>
+        <field name="parent_id" ref="disease_sub_ischemic"/>
+        <field name="severity">medium</field>
+        <field name="country_ids" eval="[(4, ref('base.ua')), (4, ref('base.de'))]"/>
+    </record>
+
+    <record id="disease_infarction" model="hr.hospital.disease">
+        <field name="name">Гострий інфаркт міокарда</field>
+        <field name="code">I21</field>
+        <field name="parent_id" ref="disease_sub_ischemic"/>
+        <field name="severity">critical</field>
+        <field name="country_ids" eval="[(4, ref('base.ua')), (4, ref('base.fr'))]"/>
+    </record>
+
+    <record id="disease_hypertension" model="hr.hospital.disease">
+        <field name="name">Гіпертонічна хвороба</field>
+        <field name="code">I10</field>
+        <field name="parent_id" ref="disease_group_circulatory"/>
+        <field name="severity">medium</field>
+    </record>
+
+    <record id="disease_measles" model="hr.hospital.disease">
+        <field name="name">Кір</field>
+        <field name="code">B05</field>
+        <field name="parent_id" ref="disease_group_infectious"/>
+        <field name="severity">high</field>
+        <field name="is_contagious">True</field>
+    </record>
+
+    <record id="disease_salmonella" model="hr.hospital.disease">
+        <field name="name">Сальмонельоз</field>
+        <field name="code">A02</field>
+        <field name="parent_id" ref="disease_sub_intestinal"/>
+        <field name="is_contagious">True</field>
+    </record>
+
+    <record id="disease_malaria" model="hr.hospital.disease">
+        <field name="name">Малярія</field>
+        <field name="code">B50-B54</field>
+        <field name="parent_id" ref="disease_group_infectious"/>
+        <field name="severity">high</field>
+        <field name="country_ids" eval="[(4, ref('base.eg')), (4, ref('base.za'))]"/>
+    </record>
+
 </odoo>

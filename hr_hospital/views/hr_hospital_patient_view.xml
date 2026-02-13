@@ -4,9 +4,27 @@
         <field name="name">hr_hospital.patient.view.list</field>
         <field name="model">hr.hospital.patient</field>
         <field name="arch" type="xml">
-            <list>
-                <field name="name"/>
-                <field name="res_partner_id"/>
+            <list string="Patients">
+                <!--            З абстрактної моделі    -->
+                <field name="full_name"/>
+                <field name="last_name"/>
+                <field name="first_name"/>
+                <field name="middle_name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="gender"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="country_id"/>
+                <field name="lang_id"/>
+                <!--            Додаткові поля з моделі пацієнтів   -->
+                <field name="personal_doctor_id"/>
+                <field name="passport_data"/>
+                <field name="contact_person_id"/>
+                <field name="blood_group"/>
+                <field name="allergies"/>
+                <field name="insurance_company_id"/>
+                <field name="insurance_policy_number"/>
             </list>
         </field>
     </record>
@@ -15,19 +33,95 @@
         <field name="name">hr_hospital.patient.view.form</field>
         <field name="model">hr.hospital.patient</field>
         <field name="arch" type="xml">
-            <form>
-                <header></header>
+            <form string="Patient Card">
                 <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="last_name" placeholder="Last Name" class="oe_inline"/>
+                            <field name="first_name" placeholder="First Name" class="oe_inline"/>
+                            <field name="middle_name" placeholder="Middle Name" class="oe_inline"/>
+                        </h1>
+                    </div>
+
                     <group>
-                        <group>
-                            <field name="name"/>
+                        <group string="Personal Information">
+                            <field name="birth_date"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                            <field name="passport_data"/>
                         </group>
-                        <group>
-                            <field name="res_partner_id"/>
+                        <group string="Medical &amp; Contact">
+                            <field name="personal_doctor_id"/>
+                            <field name="blood_group"/>
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                            <field name="country_id"/>
+                            <field name="lang_id"/>
                         </group>
                     </group>
+
+                    <notebook>
+                        <page string="Medical Info" name="medical_info">
+                            <group>
+                                <field name="allergies" placeholder="Describe any known allergies..."/>
+                            </group>
+                        </page>
+                        <page string="Insurance &amp; Emergency" name="insurance">
+                            <group>
+                                <field name="insurance_company_id"/>
+                                <field name="insurance_policy_number"/>
+                                <field name="contact_person_id"/>
+                            </group>
+                        </page>
+                        <page string="Doctor History" name="doctor_history">
+                            <field name="doctor_history_ids" readonly="1">
+                                <list decoration-muted="active == False" decoration-success="active == True">
+                                    <field name="doctor_id"/>
+                                    <field name="appointment_date"/>
+                                    <field name="change_date" string="End Date"/>
+                                    <field name="active" widget="boolean_toggle" string="Current"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
+
+            <!--            <form>-->
+            <!--                <header></header>-->
+            <!--                <sheet>-->
+            <!--                    <group>-->
+            <!--                        <group>-->
+            <!--                            <field name="full_name"/>-->
+            <!--                            <field name="last_name"/>-->
+            <!--                            <field name="first_name"/>-->
+            <!--                            <field name="middle_name"/>-->
+            <!--                        </group>-->
+            <!--                        <group>-->
+            <!--                            <field name="gender"/>-->
+            <!--                            <field name="birth_date"/>-->
+            <!--                            <field name="age"/>-->
+            <!--                            <field name="middle_name"/>-->
+            <!--                        </group>-->
+            <!--                        <group>-->
+            <!--                            <field name="phone"/>-->
+            <!--                            <field name="email"/>-->
+            <!--                            <field name="country_id"/>-->
+            <!--                            <field name="lang_id"/>-->
+            <!--                        </group>-->
+            <!--                        <group>-->
+            <!--                            <field name="personal_doctor_id"/>-->
+            <!--                            <field name="passport_data"/>-->
+            <!--                            <field name="contact_person_id"/>-->
+            <!--                            <field name="blood_group"/>-->
+            <!--                            <field name="allergies"/>-->
+            <!--                            <field name="insurance_company_id"/>-->
+            <!--                            <field name="insurance_policy_number"/>-->
+            <!--                        </group>-->
+            <!--                    </group>-->
+            <!--                </sheet>-->
+            <!--            </form>-->
         </field>
     </record>
 
@@ -38,9 +132,9 @@
         <field name="view_mode">list,form</field>
     </record>
 
-<!--    <menuitem id="hr_hospital_menu_patient"-->
-<!--              action="action_hr_hospital_patient_window"-->
-<!--              parent="hr_hospital_menu_catalog"-->
-<!--              name="Patient" sequence="300"/>-->
+    <!--    <menuitem id="hr_hospital_menu_patient"-->
+    <!--              action="action_hr_hospital_patient_window"-->
+    <!--              parent="hr_hospital_menu_catalog"-->
+    <!--              name="Patient" sequence="300"/>-->
 
 </odoo>

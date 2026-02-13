@@ -1,31 +1,60 @@
 <odoo>
 
-    <record id="hr_hospital_disease_view_list" model="ir.ui.view">
-        <field name="name">hr_hospital.disease.view.list</field>
+    <record id="view_hr_hospital_disease_list" model="ir.ui.view">
+        <field name="name">hr.hospital.disease.list</field>
         <field name="model">hr.hospital.disease</field>
         <field name="arch" type="xml">
-            <list>
+            <list expand="1">
+                <field name="code"/>
                 <field name="name"/>
-                <field name="description"/>
+                <field name="parent_id" optional="show"/>
+                <field name="severity" widget="badge"
+                       decoration-danger="severity == 'critical'"
+                       decoration-warning="severity == 'severe'"
+                       decoration-info="severity == 'medium'"
+                       decoration-success="severity == 'low'"/>
+                <field name="is_contagious" widget="boolean_toggle"/>
             </list>
         </field>
     </record>
 
-    <record id="hr_hospital_disease_form" model="ir.ui.view">
-        <field name="name">hr.hospital.disease.form ()</field>
+    <record id="view_hr_hospital_disease_form" model="ir.ui.view">
+        <field name="name">hr.hospital.disease.form</field>
         <field name="model">hr.hospital.disease</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
                 <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Disease Name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Influenza"/>
+                        </h1>
+                    </div>
                     <group>
                         <group>
-                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="parent_id" options="{'no_create_edit': True}"/>
+                            <field name="severity"/>
                         </group>
                         <group>
-                            <field name="description"/>
+                            <field name="is_contagious"/>
+                            <field name="country_ids" widget="many2many_tags"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Symptoms" name="symptoms">
+                            <field name="symptoms"/>
+                        </page>
+                        <page string="Sub-diseases" name="children">
+                            <field name="child_ids" readonly="1">
+                                <list>
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                    <field name="severity"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -37,10 +66,5 @@
         <field name="res_model">hr.hospital.disease</field>
         <field name="view_mode">list,form</field>
     </record>
-
-<!--    <menuitem id="hr_hospital_menu_disease"-->
-<!--              action="action_hr_hospital_disease_window"-->
-<!--              parent="hr_hospital_patient_menu_disease"-->
-<!--              name="Disease" sequence="200"/>-->
 
 </odoo>

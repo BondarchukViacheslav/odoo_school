@@ -1,0 +1,60 @@
+<odoo>
+
+    <record id="hr_hospital_contact_person_view_list" model="ir.ui.view">
+        <field name="name">hr_hospital.contact.person.view.list</field>
+        <field name="model">hr.hospital.contact.person</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="full_name"/>
+                <!--                <field name="res_partner_id"/>-->
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_hospital_contact_person_view_form" model="ir.ui.view">
+        <field name="name">hr_hospital.contact.person.view.form</field>
+        <field name="model">hr.hospital.contact.person</field>
+        <field name="arch" type="xml">
+            <form>
+                <header></header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="full_name"/>
+                        </group>
+                        <group>
+                            <!--                            <field name="res_partner_id"/>-->
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Assigned Patients" name="patients">
+                            <field name="patient_ids" readonly="1">
+                                <list>
+                                    <field name="last_name"/>
+                                    <field name="first_name"/>
+                                    <field name="gender"/>
+                                    <field name="age"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_contact_person_action" model="ir.actions.act_window">
+        <field name="name">Contact person</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.hospital.contact.person</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!--    <menuitem id="hr_hospital_menu_patient"-->
+    <!--              action="action_hr_hospital_patient_window"-->
+    <!--              parent="hr_hospital_menu_catalog"-->
+    <!--              name="Patient" sequence="300"/>-->
+
+</odoo>

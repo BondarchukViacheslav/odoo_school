@@ -1,37 +1,68 @@
 <odoo>
-
-    <record id="hr_hospital_visit_view_list" model="ir.ui.view">
-        <field name="name">hr_hospital.visit.view.list</field>
+    <record id="view_hr_hospital_visit_list" model="ir.ui.view">
+        <field name="name">hr.hospital.visit.list</field>
         <field name="model">hr.hospital.visit</field>
         <field name="arch" type="xml">
-            <list>
-                <field name="visit_date"/>
-                <field name="patient_id"/>
+            <list decoration-info="state == 'planned'" decoration-success="state == 'completed'"
+                  decoration-muted="state == 'cancelled'">
+                <field name="planned_date"/>
                 <field name="doctor_id"/>
-                <field name="disease_id"/>
-                <field name="diagnosis"/>
+                <field name="patient_id"/>
+                <field name="visit_type"/>
+                <field name="amount" sum="Total Amount"/>
+                <field name="state" widget="badge" decoration-info="state == 'planned'"
+                       decoration-success="state == 'completed'"/>
             </list>
         </field>
     </record>
 
-    <record id="hr_hospital_visit_view_form" model="ir.ui.view">
-        <field name="name">hr_hospital.visit.view.form</field>
+    <record id="view_hr_hospital_visit_form" model="ir.ui.view">
+        <field name="name">hr.hospital.visit.form</field>
         <field name="model">hr.hospital.visit</field>
         <field name="arch" type="xml">
             <form>
-                <header></header>
+                <header>
+                    <button name="%(hr_hospital.hr_hospital_reschedule_visit_wizard_action)d"
+                            string="Перенести візит"
+                            type="action"
+                            class="oe_highlight"
+                            invisible="state != 'planned'"
+                            context="{'default_visit_id': id, 'default_new_doctor_id': doctor_id}"/>
+
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
                 <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
                     <group>
-                        <group>
-                            <field name="visit_date"/>
-                            <field name="patient_id"/>
+                        <group string="Scheduling">
+                            <field name="planned_date"/>
+                            <field name="actual_date" readonly="state != 'completed'"/>
+                            <field name="visit_type"/>
                         </group>
-                        <group>
+                        <group string="Participants &amp; Cost">
                             <field name="doctor_id"/>
-                            <field name="disease_id"/>
-                            <field name="diagnosis"/>
+                            <field name="patient_id"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="amount" widget="monetary"/>
                         </group>
                     </group>
+                    <notebook>
+                        <page string="Diagnoses" name="diagnoses">
+                            <field name="diagnosis_ids">
+                                <list editable="bottom">
+                                    <field name="disease_id"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Recommendations" name="recommendations">
+                            <field name="recommendations" widget="html"/>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -43,10 +74,5 @@
         <field name="res_model">hr.hospital.visit</field>
         <field name="view_mode">list,form</field>
     </record>
-
-    <!--    <menuitem id="hr_hospital_menu_visit"-->
-    <!--              action="action_hr_hospital_visit_window"-->
-    <!--              parent="hr_hospital_menu_catalog"-->
-    <!--              name="Visit" sequence="200"/>-->
 
 </odoo>

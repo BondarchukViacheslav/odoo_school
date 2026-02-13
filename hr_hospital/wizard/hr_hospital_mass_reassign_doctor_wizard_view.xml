@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mass_reassign_doctor_wizard_view_form" model="ir.ui.view">
+        <field name="name">hr.hospital.mass.reassign.doctor.wizard.form</field>
+        <field name="model">hr.hospital.mass.reassign.doctor.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Масове перепризначення лікаря">
+                <sheet>
+                    <group>
+                        <group string="Вибір лікарів">
+                            <field name="old_doctor_id" options="{'no_create': True}"/>
+                            <field name="new_doctor_id" options="{'no_create': True}"/>
+                        </group>
+                        <group string="Параметри зміни">
+                            <field name="change_date"/>
+                        </group>
+                    </group>
+
+                    <group string="Обґрунтування">
+                        <field name="reason"
+                               placeholder="Вкажіть причину перепризначення (наприклад, звільнення або відпустка лікаря)..."
+                               nolabel="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Пацієнти для перепризначення" name="patients_page">
+                            <field name="patient_ids"
+                                   domain="[('personal_doctor_id', '=', old_doctor_id)]"
+                                   context="{'active_test': False}">
+                                <list create="false" edit="false">
+                                    <field name="full_name"/>
+                                    <field name="gender"/>
+                                    <field name="birth_date"/>
+                                    <field name="personal_doctor_id" string="Поточний лікар"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button name="action_reassign_doctor"
+                            string="Перепризначити"
+                            type="object"
+                            class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Скасувати"
+                            class="btn-secondary"
+                            special="cancel"
+                            data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="mass_reassign_doctor_wizard_action" model="ir.actions.act_window">
+        <field name="name">Масове перепризначення лікаря</field>
+        <field name="res_model">hr.hospital.mass.reassign.doctor.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

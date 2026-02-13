@@ -1,0 +1,60 @@
+<odoo noupdate="1">
+
+    <record id="user_doctor_house" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Gregory House</field>
+        <field name="login">house@hospital.com</field>
+        <field name="password">123456</field>
+
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <record id="user_doctor_cuddy" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Lisa Cuddy</field>
+        <field name="login">cuddy@hospital.com</field>
+        <field name="password">123456</field>
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <record id="user_doctor_wilson" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">James Wilson</field>
+        <field name="login">wilson@hospital.com</field>
+        <field name="password">123456</field>
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <record id="user_doctor_foreman" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Eric Foreman</field>
+        <field name="login">foreman@hospital.com</field>
+        <field name="password">123456</field>
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <record id="user_doctor_chase" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Robert Chase</field>
+        <field name="login">chase@hospital.com</field>
+        <field name="password">123456</field>
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <record id="user_doctor_cameron" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Allison Cameron</field>
+        <field name="login">cameron@hospital.com</field>
+        <field name="password">123456</field>
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <record id="user_doctor_intern_1" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Martha Masters</field>
+        <field name="login">intern_1@hospital.com</field>
+        <field name="password">123456</field>
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <record id="user_doctor_intern_2" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Lawrence Kutner</field>
+        <field name="login">intern_2@hospital.com</field>
+        <field name="password">123456</field>
+        <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+</odoo>

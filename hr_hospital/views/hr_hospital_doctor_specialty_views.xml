@@ -1,0 +1,50 @@
+<odoo>
+
+    <record id="hr_hospital_doctor_specialty_view_list" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.specialty.view.list</field>
+        <field name="model">hr.hospital.doctor.specialty</field>
+        <field name="arch" type="xml">
+            <list string="Specialties">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_hospital_doctor_specialty_view_form" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.specialty.view.form</field>
+        <field name="model">hr.hospital.doctor.specialty</field>
+        <field name="arch" type="xml">
+            <form string="Specialty">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Specialty Name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Cardiology"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Detailed description of the specialty..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_doctor_specialties_action" model="ir.actions.act_window">
+        <field name="name">Doctor Specialties</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.hospital.doctor.specialty</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo>

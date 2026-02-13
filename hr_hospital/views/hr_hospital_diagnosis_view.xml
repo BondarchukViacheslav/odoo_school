@@ -1,0 +1,78 @@
+<odoo>
+    <record id="hr_hospital_diagnosis_view_list" model="ir.ui.view">
+        <field name="name">hr.hospital.diagnosis.view.list</field>
+        <field name="model">hr.hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <list decoration-success="is_approved == True" decoration-muted="is_approved == False">
+                <field name="disease_id"/>
+                <field name="severity" widget="badge"
+                       decoration-danger="severity == 'critical'"
+                       decoration-warning="severity in ('heavy', 'severe')"
+                       decoration-info="severity == 'medium'"/>
+                <field name="is_approved" widget="boolean_toggle"/>
+                <field name="approved_doctor_id" optional="show"/>
+                <field name="approval_date" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="hr_hospital_diagnosis_view_form" model="ir.ui.view">
+        <field name="name">hr.hospital.diagnosis.view.form</field>
+        <field name="model">hr.hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <span class="oe_right" invisible="is_approved">
+                        <i class="fa fa-info-circle text-warning"/>
+                        Waiting for mentor approval
+                    </span>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Approved" bg_color="bg-success" invisible="not is_approved"/>
+
+                    <group>
+                        <group string="Main Information">
+                            <field name="visit_id"
+                                   options="{'no_create': True}"
+                                   domain="[('state', '=', 'completed'),
+                                    ('planned_date', '>=', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d'))]"/>
+
+                            <field name="disease_id" options="{'no_create': True}"/>
+                            <field name="severity"/>
+                        </group>
+                        <group string="Approval Status">
+                            <field name="is_approved" widget="boolean_toggle"/>
+                            <field name="approved_doctor_id" invisible="not is_approved" readonly="1"/>
+                            <field name="approval_date" invisible="not is_approved" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Enter detailed diagnosis description..."
+                                   nolabel="1"/>
+                        </page>
+                        <page string="Treatment Plan" name="treatment">
+                            <field name="treatment" widget="html" placeholder="Describe the prescribed treatment..."
+                                   nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hr_hospital_diagnosis_view_search" model="ir.ui.view">
+        <field name="name">hr.hospital.diagnosis.search</field>
+        <field name="model">hr.hospital.diagnosis</field>
+        <field name="arch" type="xml">
+            <search>
+            </search>
+        </field>
+    </record>
+
+    <record id="hr_hospital_diagnosis_action" model="ir.actions.act_window">
+        <field name="name">Diagnosis</field>
+        <field name="res_model">hr.hospital.diagnosis</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

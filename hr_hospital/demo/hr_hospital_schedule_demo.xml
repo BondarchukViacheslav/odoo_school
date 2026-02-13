@@ -1,0 +1,127 @@
+<odoo noupdate="1">
+
+    <record id="schedule_house_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_house"/>
+        <field name="day_of_week">0</field>
+        <field name="start_hour">8.0</field>
+        <field name="end_hour">14.0</field>
+        <field name="appointment_type">offline</field>
+    </record>
+
+    <record id="schedule_house_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_house"/>
+        <field name="day_of_week">2</field>
+        <field name="start_hour">10.0</field>
+        <field name="end_hour">18.0</field>
+        <field name="appointment_type">offline</field>
+    </record>
+
+    <record id="schedule_house_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_house"/>
+        <field name="day_of_week">4</field>
+        <field name="start_hour">9.0</field>
+        <field name="end_hour">15.0</field>
+        <field name="appointment_type">online</field>
+    </record>
+
+    <record id="schedule_cuddy_daily" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_cuddy"/>
+        <field name="day_of_week">0</field>
+        <field name="start_hour">9.0</field>
+        <field name="end_hour">17.0</field>
+        <field name="appointment_type">offline</field>
+    </record>
+
+    <record id="schedule_cuddy_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_cuddy"/>
+        <field name="day_of_week">1</field>
+        <field name="start_hour">9.0</field>
+        <field name="end_hour">17.0</field>
+    </record>
+
+    <record id="schedule_wilson_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_wilson"/>
+        <field name="day_of_week">1</field>
+        <field name="start_hour">8.5</field>
+        <field name="end_hour">16.5</field>
+    </record>
+
+    <record id="schedule_wilson_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_wilson"/>
+        <field name="day_of_week">3</field>
+        <field name="start_hour">10.0</field>
+        <field name="end_hour">18.0</field>
+    </record>
+
+    <record id="schedule_foreman_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_foreman"/>
+        <field name="day_of_week">0</field>
+        <field name="start_hour">8.0</field>
+        <field name="end_hour">16.0</field>
+    </record>
+
+    <record id="schedule_foreman_sat" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_foreman"/>
+        <field name="day_of_week">5</field>
+        <field name="start_hour">10.0</field>
+        <field name="end_hour">14.0</field>
+        <field name="appointment_type">online</field>
+    </record>
+
+    <record id="schedule_chase_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_chase"/>
+        <field name="day_of_week">1</field>
+        <field name="start_hour">9.0</field>
+        <field name="end_hour">15.0</field>
+    </record>
+
+    <record id="schedule_chase_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_chase"/>
+        <field name="day_of_week">4</field>
+        <field name="start_hour">12.0</field>
+        <field name="end_hour">20.0</field>
+    </record>
+
+    <record id="schedule_cameron_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_cameron"/>
+        <field name="day_of_week">2</field>
+        <field name="start_hour">8.0</field>
+        <field name="end_hour">16.0</field>
+    </record>
+
+    <record id="schedule_cameron_fri" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_cameron"/>
+        <field name="day_of_week">4</field>
+        <field name="start_hour">8.0</field>
+        <field name="end_hour">16.0</field>
+    </record>
+
+    <record id="schedule_masters_mon" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_intern_1"/>
+        <field name="day_of_week">0</field>
+        <field name="start_hour">8.0</field>
+        <field name="end_hour">18.0</field>
+    </record>
+
+    <record id="schedule_masters_tue" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_intern_1"/>
+        <field name="day_of_week">1</field>
+        <field name="start_hour">8.0</field>
+        <field name="end_hour">18.0</field>
+    </record>
+
+    <record id="schedule_kutner_wed" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_intern_2"/>
+        <field name="day_of_week">2</field>
+        <field name="start_hour">9.0</field>
+        <field name="end_hour">17.0</field>
+    </record>
+
+    <record id="schedule_kutner_thu" model="hr.hospital.doctor.schedule">
+        <field name="doctor_id" ref="doctor_intern_2"/>
+        <field name="day_of_week">3</field>
+        <field name="start_hour">9.0</field>
+        <field name="end_hour">17.0</field>
+    </record>
+
+</odoo>

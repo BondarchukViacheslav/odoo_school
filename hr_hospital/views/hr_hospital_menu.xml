@@ -1,32 +1,90 @@
 <odoo>
+
     <menuitem id="hr_hospital_main_menu"
               name="Hospital"
               web_icon="hr_hospital,static/description/icon.png"
               sequence="10"/>
 
-    <menuitem id="hr_hospital_menu_visit"
+    <menuitem id="hr_hospital_main_menu_visit"
               parent="hr_hospital_main_menu"
               name="Visits"
               action="hr_hospital_visit_action"
               sequence="10"/>
 
-    <menuitem id="hr_hospital_menu_patient"
+    <menuitem id="hr_hospital_main_menu_doctor_schedule"
               parent="hr_hospital_main_menu"
+              name="Schedule"
+              action="hr_hospital_doctor_schedule_action"
+              sequence="10"/>
+
+    <menuitem id="hr_hospital_menu_config"
+              name="Configuration"
+              parent="hr_hospital_main_menu"
+              sequence="100"/>
+
+    <menuitem id="hr_hospital_menu_wizard"
+              name="Wizard"
+              parent="hr_hospital_main_menu"
+              sequence="110"/>
+
+    <menuitem id="hr_hospital_menu_config_patient"
+              parent="hr_hospital_menu_config"
               name="Patients"
               action="hr_hospital_patient_action"
               sequence="20"/>
 
-    <menuitem id="hr_hospital_menu_doctor"
-              parent="hr_hospital_main_menu"
+    <menuitem id="hr_hospital_menu_config_doctor"
+              parent="hr_hospital_menu_config"
               name="Doctors"
               action="hr_hospital_doctor_action"
               sequence="30"/>
 
-    <menuitem id="hr_hospital_menu_disease"
-              parent="hr_hospital_main_menu"
+    <menuitem id="hr_hospital_menu_config_doctor_specialties"
+              name="Specialties"
+              parent="hr_hospital_menu_config"
+              action="hr_hospital_doctor_specialties_action"
+              sequence="40"/>
+
+    <menuitem id="hr_hospital_menu_config_disease"
+              parent="hr_hospital_menu_config"
               name="Disease"
               action="hr_hospital_disease_action"
+              sequence="50"/>
+
+    <menuitem id="hr_hospital_menu_config_diagnosis"
+              parent="hr_hospital_menu_config"
+              name="Diagnosis"
+              action="hr_hospital_diagnosis_action"
+              sequence="60"/>
+
+    <menuitem id="hr_hospital_menu_config_contact_person"
+              parent="hr_hospital_menu_config"
+              name="Contact person"
+              action="hr_hospital_contact_person_action"
+              sequence="90"/>
+
+    <menuitem id="hr_hospital_menu_wizard_mass_reassign_doctor_wizard"
+              parent="hr_hospital_menu_wizard"
+              name="Mass reassign doctor"
+              action="mass_reassign_doctor_wizard_action"
+              sequence="10"/>
+
+    <menuitem id="hr_hospital_menu_wizard_disease_report_wizard"
+              parent="hr_hospital_menu_wizard"
+              name="Disease report"
+              action="hr_hospital_disease_report_wizard_action"
+              sequence="20"/>
+
+    <menuitem id="hr_hospital_menu_wizard_doctor_schedule_wizard"
+              parent="hr_hospital_menu_wizard"
+              name="Fill Doctor Schedule"
+              action="hr_hospital_doctor_schedule_wizard_action"
+              sequence="30"/>
+
+    <menuitem id="hr_hospital_menu_wizard_card_export_wizard"
+              parent="hr_hospital_menu_wizard"
+              name="Patient Card Export"
+              action="patient_card_export_wizard_action"
               sequence="40"/>
 
 </odoo>
-

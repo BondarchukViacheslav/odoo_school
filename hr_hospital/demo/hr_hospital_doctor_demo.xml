@@ -1,23 +1,85 @@
-<odoo>
+<odoo noupdate="1">
 
-    <record id="dr_mykola_amosov" model="hr.hospital.doctor">
-        <field name="res_partner_id" ref="partner_mykola_amosov"/>
-        <field name="specialty">Кардіохірург</field>
+    <record id="doctor_house" model="hr.hospital.doctor">
+        <field name="first_name">Gregory</field>
+        <field name="last_name">House</field>
+        <field name="specialty_id" ref="specialty_surgeon"/>
+        <field name="license_number">SURG-777</field>
+        <field name="is_intern">False</field>
+        <field name="user_id" ref="user_doctor_house"/>
+        <field name="gender">male</field>
     </record>
 
-    <record id="dr_oleksandr_bohomolets" model="hr.hospital.doctor">
-        <field name="res_partner_id" ref="partner_oleksandr_bohomolets"/>
-        <field name="specialty">Патофізіолог</field>
+    <record id="doctor_cuddy" model="hr.hospital.doctor">
+        <field name="first_name">Lisa</field>
+        <field name="last_name">Cuddy</field>
+        <field name="specialty_id" ref="specialty_therapist"/>
+        <field name="license_number">THER-888</field>
+        <field name="is_intern">False</field>
+        <field name="user_id" ref="user_doctor_cuddy"/>
+        <field name="gender">female</field>
     </record>
 
-    <record id="dr_volodymyr_filatov" model="hr.hospital.doctor">
-        <field name="res_partner_id" ref="partner_volodymyr_filatov"/>
-        <field name="specialty">Офтальмолог</field>
+    <record id="doctor_wilson" model="hr.hospital.doctor">
+        <field name="first_name">James</field>
+        <field name="last_name">Wilson</field>
+        <field name="specialty_id" ref="specialty_cardiologist"/>
+        <field name="license_number">CARD-999</field>
+        <field name="is_intern">False</field>
+        <field name="user_id" ref="user_doctor_wilson"/>
+        <field name="gender">male</field>
     </record>
 
-    <record id="dr_vasyl_netiazhenko" model="hr.hospital.doctor">
-        <field name="res_partner_id" ref="partner_vasyl_netiazhenko"/>
-        <field name="specialty">Терапевт, кардіолог.</field>
+    <record id="doctor_foreman" model="hr.hospital.doctor">
+        <field name="first_name">Eric</field>
+        <field name="last_name">Foreman</field>
+        <field name="specialty_id" ref="specialty_neurologist"/>
+        <field name="license_number">NEUR-111</field>
+        <field name="is_intern">False</field>
+        <field name="user_id" ref="user_doctor_foreman"/>
+        <field name="gender">male</field>
+    </record>
+
+    <record id="doctor_chase" model="hr.hospital.doctor">
+        <field name="first_name">Robert</field>
+        <field name="last_name">Chase</field>
+        <field name="specialty_id" ref="specialty_pediatrician"/>
+        <field name="license_number">PEDI-222</field>
+        <field name="is_intern">False</field>
+        <field name="user_id" ref="user_doctor_chase"/>
+        <field name="gender">male</field>
+    </record>
+
+    <record id="doctor_cameron" model="hr.hospital.doctor">
+        <field name="first_name">Allison</field>
+        <field name="last_name">Cameron</field>
+        <field name="specialty_id" ref="specialty_surgeon"/>
+        <field name="license_number">SURG-333</field>
+        <field name="user_id" ref="user_doctor_cameron"/>
+        <field name="is_intern">False</field>
+        <field name="gender">female</field>
+    </record>
+
+    <record id="doctor_intern_1" model="hr.hospital.doctor">
+        <field name="first_name">Martha</field>
+        <field name="last_name">Masters</field>
+        <field name="specialty_id" ref="specialty_surgeon"/>
+        <field name="license_number">INT-001</field>
+        <field name="is_intern">True</field>
+        <field name="mentor_id" ref="doctor_house"/>
+        <field name="user_id" ref="user_doctor_intern_1"/>
+        <field name="gender">female</field>
+    </record>
+
+    <record id="doctor_intern_2" model="hr.hospital.doctor">
+        <field name="first_name">Lawrence</field>
+        <field name="last_name">Kutner</field>
+        <field name="specialty_id" ref="specialty_therapist"/>
+        <field name="license_number">INT-002</field>
+        <field name="is_intern">True</field>
+        <field name="mentor_id" ref="doctor_cuddy"/>
+        <field name="user_id" ref="user_doctor_intern_2"/>
+        <field name="gender">male</field>
     </record>
 
 </odoo>

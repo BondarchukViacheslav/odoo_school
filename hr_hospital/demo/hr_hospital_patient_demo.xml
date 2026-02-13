@@ -1,13 +1,150 @@
-<odoo>
-    <record id="patient_ivan_sirko" model="hr.hospital.patient">
-        <field name="res_partner_id" ref="partner_ivan_sirko"/>
+<odoo noupdate="1">
+
+    <record id="contact_p1" model="hr.hospital.contact.person">
+        <field name="first_name">Олена</field>
+        <field name="last_name">Петренко</field>
+        <field name="phone">+380671112233</field>
+        <field name="gender">female</field>
+        <!--            <field name="relationship">Мати</field>-->
     </record>
 
-    <record id="patient_ivan_franko" model="hr.hospital.patient">
-        <field name="res_partner_id" ref="partner_ivan_franko"/>
+    <record id="contact_p2" model="hr.hospital.contact.person">
+        <field name="first_name">Ігор</field>
+        <field name="last_name">Іванов</field>
+        <field name="phone">+380674445566</field>
+        <field name="gender">male</field>
+        <!--            <field name="relationship">Чоловік</field>-->
     </record>
 
-    <record id="patient_taras_shevchenko" model="hr.hospital.patient">
-        <field name="res_partner_id" ref="partner_taras_shevchenko"/>
+    <record id="contact_p3" model="hr.hospital.contact.person">
+        <field name="first_name">Світлана</field>
+        <field name="last_name">Сидоренко</field>
+        <field name="phone">+380677778899</field>
+        <field name="gender">female</field>
+        <!--            <field name="relationship">Сестра</field>-->
     </record>
+
+    <record id="patient_1" model="hr.hospital.patient">
+        <field name="first_name">Андрій</field>
+        <field name="last_name">Петренко</field>
+        <field name="birth_date">1995-03-12</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_house"/>
+        <field name="contact_person_id" ref="contact_p1"/>
+    </record>
+
+    <record id="patient_2" model="hr.hospital.patient">
+        <field name="first_name">Марія</field>
+        <field name="last_name">Іванова</field>
+        <field name="birth_date">1992-07-25</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_wilson"/>
+        <field name="contact_person_id" ref="contact_p2"/>
+    </record>
+
+    <record id="patient_3" model="hr.hospital.patient">
+        <field name="first_name">Дмитро</field>
+        <field name="last_name">Сидоренко</field>
+        <field name="birth_date">1985-11-30</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_foreman"/>
+        <field name="contact_person_id" ref="contact_p3"/>
+    </record>
+
+    <record id="patient_4" model="hr.hospital.patient">
+        <field name="first_name">Оксана</field>
+        <field name="last_name">Ковальчук</field>
+        <field name="birth_date">2000-01-15</field>
+        <field name="personal_doctor_id" ref="doctor_chase"/>
+    </record>
+
+    <record id="patient_5" model="hr.hospital.patient">
+        <field name="first_name">Володимир</field>
+        <field name="last_name">Мельник</field>
+        <field name="birth_date">1978-05-05</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_cuddy"/>
+    </record>
+
+    <record id="patient_6" model="hr.hospital.patient">
+        <field name="first_name">Юлія</field>
+        <field name="last_name">Шевченко</field>
+        <field name="birth_date">1998-08-20</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_house"/>
+        <field name="contact_person_id" ref="contact_p1"/>
+    </record>
+
+    <record id="patient_7" model="hr.hospital.patient">
+        <field name="first_name">Сергій</field>
+        <field name="last_name">Бондаренко</field>
+        <field name="birth_date">1983-04-10</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_cameron"/>
+    </record>
+
+    <record id="patient_8" model="hr.hospital.patient">
+        <field name="first_name">Наталія</field>
+        <field name="last_name">Ткаченко</field>
+        <field name="birth_date">1990-12-01</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_intern_1"/>
+    </record>
+
+    <record id="patient_9" model="hr.hospital.patient">
+        <field name="first_name">Максим</field>
+        <field name="last_name">Кравченко</field>
+        <field name="birth_date">2005-02-28</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_intern_2"/>
+    </record>
+
+    <record id="patient_10" model="hr.hospital.patient">
+        <field name="first_name">Анна</field>
+        <field name="last_name">Олійник</field>
+        <field name="birth_date">1987-06-18</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_wilson"/>
+    </record>
+
+    <record id="patient_11" model="hr.hospital.patient">
+        <field name="first_name">Микола</field>
+        <field name="last_name">Поліщук</field>
+        <field name="birth_date">1970-09-09</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_foreman"/>
+    </record>
+
+    <record id="patient_12" model="hr.hospital.patient">
+        <field name="first_name">Тетяна</field>
+        <field name="last_name">Мороз</field>
+        <field name="birth_date">1993-03-22</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_chase"/>
+    </record>
+
+    <record id="patient_13" model="hr.hospital.patient">
+        <field name="first_name">Олександр</field>
+        <field name="last_name">Лисенко</field>
+        <field name="birth_date">1981-10-14</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_cuddy"/>
+    </record>
+
+    <record id="patient_14" model="hr.hospital.patient">
+        <field name="first_name">Ірина</field>
+        <field name="last_name">Руденко</field>
+        <field name="birth_date">1996-05-17</field>
+        <field name="gender">female</field>
+        <field name="personal_doctor_id" ref="doctor_house"/>
+    </record>
+
+    <record id="patient_15" model="hr.hospital.patient">
+        <field name="first_name">Павло</field>
+        <field name="last_name">Савченко</field>
+        <field name="birth_date">1989-12-24</field>
+        <field name="gender">male</field>
+        <field name="personal_doctor_id" ref="doctor_cameron"/>
+    </record>
+
 </odoo>

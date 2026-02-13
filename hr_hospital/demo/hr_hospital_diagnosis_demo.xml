@@ -1,0 +1,167 @@
+<odoo noupdate="1">
+
+    <record id="diag_1" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_1"/>
+        <field name="disease_id" ref="disease_flu"/>
+        <field name="description">Класичний перебіг грипу. Призначено вітаміни та спокій.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_house"/>
+        <field name="approval_date" eval="datetime.now()"/>
+    </record>
+
+    <record id="diag_2" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_1"/>
+        <field name="disease_id" ref="disease_hypertension"/>
+        <field name="description">Виявлено супутню гіпертонію.</field>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_house"/>
+        <field name="approval_date" eval="datetime.now()"/>
+    </record>
+
+    <record id="diag_3" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_2"/>
+        <field name="disease_id" ref="disease_infarction"/>
+        <field name="description">Гострий інфаркт. Необхідна термінова госпіталізація.</field>
+        <field name="severity">critical</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_wilson"/>
+        <field name="approval_date" eval="datetime.now()"/>
+    </record>
+
+    <record id="diag_4" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_6"/>
+        <field name="disease_id" ref="disease_angina"/>
+        <field name="description">Підозра на стенокардію. Потрібен огляд ментора.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <record id="diag_5" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_7"/>
+        <field name="disease_id" ref="disease_salmonella"/>
+        <field name="description">Гостра кишкова інфекція.</field>
+        <field name="severity">severe</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <record id="diag_6" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_5"/>
+        <field name="disease_id" ref="disease_covid"/>
+        <field name="description">Легкий стан, самоізоляція.</field>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_cuddy"/>
+        <field name="approval_date" eval="datetime.now()"/>
+    </record>
+
+    <record id="diag_7" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_4"/>
+        <field name="disease_id" ref="disease_flu"/>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_chase"/>
+    </record>
+
+    <record id="diag_8" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_8"/>
+        <field name="disease_id" ref="disease_cholera"/>
+        <field name="severity">critical</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_house"/>
+    </record>
+
+    <record id="diag_9" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_9"/>
+        <field name="disease_id" ref="disease_measles"/>
+        <field name="severity">severe</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <record id="diag_10" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_10"/>
+        <field name="disease_id" ref="disease_angina"/>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_house"/>
+    </record>
+
+    <record id="diag_11" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_11"/>
+        <field name="disease_id" ref="disease_hypertension"/>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_wilson"/>
+    </record>
+
+    <record id="diag_12" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_12"/>
+        <field name="disease_id" ref="disease_flu"/>
+        <field name="severity">moderate</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <record id="diag_13" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_13"/>
+        <field name="disease_id" ref="disease_covid"/>
+        <field name="severity">severe</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_cuddy"/>
+    </record>
+
+    <record id="diag_14" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_14"/>
+        <field name="disease_id" ref="disease_malaria"/>
+        <field name="severity">critical</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_house"/>
+    </record>
+
+    <record id="diag_15" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_15"/>
+        <field name="disease_id" ref="disease_salmonella"/>
+        <field name="severity">moderate</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <record id="diag_16" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_2"/>
+        <field name="disease_id" ref="disease_hypertension"/>
+        <field name="severity">mild</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_wilson"/>
+    </record>
+
+    <record id="diag_17" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_4"/>
+        <field name="disease_id" ref="disease_angina"/>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_chase"/>
+    </record>
+
+    <record id="diag_18" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_25"/>
+        <field name="disease_id" ref="disease_flu"/>
+        <field name="severity">mild</field>
+        <field name="is_approved">False</field>
+    </record>
+
+    <record id="diag_19" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_8"/>
+        <field name="disease_id" ref="disease_covid"/>
+        <field name="severity">moderate</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_house"/>
+    </record>
+
+    <record id="diag_20" model="hr.hospital.diagnosis">
+        <field name="visit_id" ref="visit_10"/>
+        <field name="disease_id" ref="disease_infarction"/>
+        <field name="severity">critical</field>
+        <field name="is_approved">True</field>
+        <field name="approved_doctor_id" ref="doctor_house"/>
+    </record>
+
+</odoo>
