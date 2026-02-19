@@ -1,10 +1,6 @@
-import logging
-
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 from odoo.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
 
 
 class HRHospitalVisit(models.Model):

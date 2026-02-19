@@ -31,6 +31,7 @@
         'wizard/hr_hospital_disease_report_wizard_view.xml',
         'wizard/hr_hospital_doctor_schedule_wizard_view.xml',
         'wizard/hr_hospital_patient_card_export_wizard_view.xml',
+        'wizard/hr_hospital_diagnosis_report_wizard_view.xml',
         'views/hr_hospital_menu.xml',
         'views/res_partner_views.xml',
     ],

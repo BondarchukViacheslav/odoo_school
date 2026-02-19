@@ -1,9 +1,5 @@
-import logging
-
-from odoo import models, fields, api
+from odoo import api, fields, models
 from odoo.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
 
 
 class HRHospitalMassReassignDoctorWizard(models.TransientModel):

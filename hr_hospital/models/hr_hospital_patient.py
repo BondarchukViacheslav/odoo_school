@@ -1,9 +1,5 @@
-import logging
-
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
 
 
 class HRHospitalPatient(models.Model):
@@ -46,6 +42,13 @@ class HRHospitalPatient(models.Model):
         inverse_name='patient_id',
         string='Doctor History',
         context={'active_test': False}  # ЦЕ КРИТИЧНО ВАЖЛИВО
+    )
+
+    diagnosis_ids = fields.One2many(
+        comodel_name='hr.hospital.diagnosis',
+        inverse_name='patient_id',
+        string='Diagnosis History',
+        readonly=True
     )
 
     # 5.2. Python обмеження (@api.constrains)
@@ -102,3 +105,29 @@ class HRHospitalPatient(models.Model):
             domain.append(('lang_id', '=', lang_id))
 
         return domain
+
+    # Метод для виклику Smart-button
+    def action_view_visits(self):
+        self.ensure_one()
+        return {
+            'name': 'Visits History',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hr.hospital.visit',
+            'view_mode': 'list,form,calendar',
+            'domain': [('patient_id', '=', self.id)],
+            'context': {'default_patient_id': self.id},
+        }
+
+    def action_create_quick_visit(self):
+        self.ensure_one()
+        return {
+            'name': 'New Appointment',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hr.hospital.visit',
+            'view_mode': 'form',
+            'target': 'current',
+            'context': {
+                'default_patient_id': self.id,
+                'default_doctor_id': self.personal_doctor_id.id,
+            },
+        }

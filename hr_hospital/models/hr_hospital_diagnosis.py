@@ -1,9 +1,5 @@
-import logging
-
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
 
 
 class HRHospitalDiagnosis(models.Model):
@@ -70,6 +66,13 @@ class HRHospitalDiagnosis(models.Model):
         related='visit_id.planned_date',
         store=True,
         string='Planned Date & Time'
+    )
+
+    disease_type_id = fields.Many2one(
+        related='disease_id.parent_id',
+        string='Disease Type',
+        store=True,
+        readonly=True
     )
 
     # 5.2. Python обмеження (@api.constrains)

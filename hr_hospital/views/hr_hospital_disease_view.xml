@@ -60,6 +60,30 @@
         </field>
     </record>
 
+    <record id="view_hr_hospital_disease_search" model="ir.ui.view">
+        <field name="name">hr.hospital.disease.search</field>
+        <field name="model">hr.hospital.disease</field>
+        <field name="arch" type="xml">
+            <search string="Search Diseases">
+                <field name="name" string="Disease Name"/>
+                <field name="code" string="ICD-10 Code"/>
+
+                <searchpanel>
+                    <field name="parent_id"
+                           string="Categories"
+                           icon="fa-hospital-o"
+                           enable_counters="1"
+                           expand="1"/>
+
+                    <field name="severity"
+                           string="Severity"
+                           icon="fa-exclamation-triangle"
+                           select="multi"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
     <record id="hr_hospital_disease_action" model="ir.actions.act_window">
         <field name="name">Disease</field>
         <field name="type">ir.actions.act_window</field>

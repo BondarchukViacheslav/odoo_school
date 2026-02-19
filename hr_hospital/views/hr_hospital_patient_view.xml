@@ -34,7 +34,23 @@
         <field name="model">hr.hospital.patient</field>
         <field name="arch" type="xml">
             <form string="Patient Card">
+                <header>
+                    <button name="action_create_quick_visit"
+                            string="Quick Appointment"
+                            type="object"
+                            class="oe_highlight"/>
+
+                </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_visits"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-calendar"
+                                string="Visits">
+                        </button>
+                    </div>
+
                     <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
                     <div class="oe_title">
                         <h1>
@@ -84,44 +100,33 @@
                                 </list>
                             </field>
                         </page>
+                        <page string="Diagnosis History" name="diagnoses_history">
+                            <field name="diagnosis_ids" readonly="1">
+                                <list>
+                                    <field name="approval_date"/>
+                                    <field name="doctor_id"/>
+                                    <field name="disease_id"/>
+                                    <field name="description"/>
+                                </list>
+                            </field>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
 
-            <!--            <form>-->
-            <!--                <header></header>-->
-            <!--                <sheet>-->
-            <!--                    <group>-->
-            <!--                        <group>-->
-            <!--                            <field name="full_name"/>-->
-            <!--                            <field name="last_name"/>-->
-            <!--                            <field name="first_name"/>-->
-            <!--                            <field name="middle_name"/>-->
-            <!--                        </group>-->
-            <!--                        <group>-->
-            <!--                            <field name="gender"/>-->
-            <!--                            <field name="birth_date"/>-->
-            <!--                            <field name="age"/>-->
-            <!--                            <field name="middle_name"/>-->
-            <!--                        </group>-->
-            <!--                        <group>-->
-            <!--                            <field name="phone"/>-->
-            <!--                            <field name="email"/>-->
-            <!--                            <field name="country_id"/>-->
-            <!--                            <field name="lang_id"/>-->
-            <!--                        </group>-->
-            <!--                        <group>-->
-            <!--                            <field name="personal_doctor_id"/>-->
-            <!--                            <field name="passport_data"/>-->
-            <!--                            <field name="contact_person_id"/>-->
-            <!--                            <field name="blood_group"/>-->
-            <!--                            <field name="allergies"/>-->
-            <!--                            <field name="insurance_company_id"/>-->
-            <!--                            <field name="insurance_policy_number"/>-->
-            <!--                        </group>-->
-            <!--                    </group>-->
-            <!--                </sheet>-->
-            <!--            </form>-->
+    <record id="hr_hospital_patient_view_search" model="ir.ui.view">
+        <field name="name">hr.hospital.patient.search</field>
+        <field name="model">hr.hospital.patient</field>
+        <field name="arch" type="xml">
+            <search string="Search Patient">
+                <!--                <field name="full_name" string="Name" filter_domain="[('full_name', 'ilike', self)]"/>-->
+                <field name="last_name" string="Patient Details"
+                       filter_domain="['|', '|', ('last_name', 'ilike', self), ('first_name', 'ilike', self), ('middle_name', 'ilike', self)]"/>
+                <field name="phone" string="Phone" filter_domain="[('phone', 'ilike', self)]"/>
+
+            </search>
         </field>
     </record>
 
@@ -131,10 +136,5 @@
         <field name="res_model">hr.hospital.patient</field>
         <field name="view_mode">list,form</field>
     </record>
-
-    <!--    <menuitem id="hr_hospital_menu_patient"-->
-    <!--              action="action_hr_hospital_patient_window"-->
-    <!--              parent="hr_hospital_menu_catalog"-->
-    <!--              name="Patient" sequence="300"/>-->
 
 </odoo>

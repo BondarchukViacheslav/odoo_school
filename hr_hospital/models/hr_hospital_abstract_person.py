@@ -1,10 +1,7 @@
-import logging
 import re
 from datetime import date
 from odoo import models, fields, api
 from odoo.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
 
 
 class HRHospitalAbstractPerson(models.AbstractModel):

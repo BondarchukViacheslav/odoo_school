@@ -1,12 +1,8 @@
-import logging
-
 import json
 import io
 import csv
 import base64
 from odoo import models, fields, api
-
-_logger = logging.getLogger(__name__)
 
 
 class HRospitalPatientCardExportWizard(models.TransientModel):

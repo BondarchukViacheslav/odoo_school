@@ -1,12 +1,7 @@
-import logging
-
 from datetime import date
 
-from odoo import models, fields, api
-from odoo.exceptions import UserError
-from odoo.exceptions import ValidationError
-
-_logger = logging.getLogger(__name__)
+from odoo import api, fields, models
+from odoo.exceptions import UserError, ValidationError
 
 
 class HRHospitalDoctor(models.Model):
@@ -66,6 +61,48 @@ class HRHospitalDoctor(models.Model):
         inverse_name='personal_doctor_id',
         string='Patients',
     )
+
+    intern_ids = fields.One2many(
+        comodel_name='hr.hospital.doctor',
+        inverse_name='mentor_id',
+        string='Interns',
+        domain=[('is_intern', '=', True)]
+    )
+
+    # Related поля (вони тільки для читання і підтягуються автоматично)
+    mentor_photo = fields.Image(
+        related='mentor_id.image_1920',
+        string="Mentor Photo"
+    )
+    mentor_full_name = fields.Char(
+        related='mentor_id.full_name',
+        string="Mentor Name"
+    )
+    mentor_specialty_id = fields.Many2one(
+        related='mentor_id.specialty_id',
+        string="Mentor Specialty"
+    )
+    mentor_license_number = fields.Char(
+        related='mentor_id.license_number',
+        string="Mentor License"
+    )
+    mentor_license_issue_date = fields.Date(
+        related='mentor_id.license_issue_date',
+        string="Mentor Issue Date"
+    )
+
+    def action_create_visit_from_kanban(self):
+        self.ensure_one()
+        return {
+            'name': 'Quick Appointment',
+            'type': 'ir.actions.act_window',
+            'res_model': 'hr.hospital.visit',
+            'view_mode': 'form',
+            'target': 'new',
+            'context': {
+                'default_doctor_id': self.id,
+            }
+        }
 
     # 5.1. SQL Constraints Унікальність ліцензійного номера лікаря
     _license_number_unique = models.Constraint(

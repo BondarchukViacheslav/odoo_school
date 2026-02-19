@@ -15,7 +15,7 @@
               parent="hr_hospital_main_menu"
               name="Schedule"
               action="hr_hospital_doctor_schedule_action"
-              sequence="10"/>
+              sequence="20"/>
 
     <menuitem id="hr_hospital_menu_config"
               name="Configuration"
@@ -26,6 +26,11 @@
               name="Wizard"
               parent="hr_hospital_main_menu"
               sequence="110"/>
+
+    <menuitem id="hr_hospital_menu_report"
+              name="Report"
+              parent="hr_hospital_main_menu"
+              sequence="120"/>
 
     <menuitem id="hr_hospital_menu_config_patient"
               parent="hr_hospital_menu_config"
@@ -86,5 +91,12 @@
               name="Patient Card Export"
               action="patient_card_export_wizard_action"
               sequence="40"/>
+
+    <menuitem id="hr_hospital_menu_report_diagnosis_report_wizard"
+              parent="hr_hospital_menu_report"
+              name="Patient Card Export"
+              action="diagnosis_report_wizard_action"
+              sequence="40"/>
+
 
 </odoo>

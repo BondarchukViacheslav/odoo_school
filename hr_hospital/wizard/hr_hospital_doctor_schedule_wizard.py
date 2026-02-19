@@ -1,9 +1,5 @@
-import logging
-
 from odoo import models, fields
 from datetime import timedelta
-
-_logger = logging.getLogger(__name__)
 
 
 class HRHospitalDoctorScheduleWizard(models.TransientModel):

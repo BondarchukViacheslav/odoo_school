@@ -41,6 +41,7 @@
                             <field name="license_issue_date"/>
                             <field name="experience"/>
                             <field name="rating" widget="float"/>
+                            <field name="country_study_id"/>
                         </group>
                         <group string="Status &amp; Mentorship">
                             <field name="is_intern"/>
@@ -87,9 +88,133 @@
                                 </list>
                             </field>
                         </page>
+
+                        <page string="Interns" name="interns" invisible="is_intern">
+                            <field name="intern_ids" mode="kanban" readonly="1">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="first_name"/>
+                                    <field name="last_name"/>
+                                    <field name="specialty_id"/>
+                                    <field name="image_128"/>
+                                    <templates>
+                                        <t t-name="card">
+                                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                                <div class="o_kanban_image">
+                                                    <img t-att-src="record.image_128.raw_value ?
+                                                        '/web/image/hr.hospital.doctor/' + record.id.raw_value + '/image_128' :
+                                                        '/web/static/img/placeholder.png'"
+                                                         alt="Intern Photo"
+                                                         class="o_image_64_contain"/>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <strong class="o_kanban_record_title">
+                                                        <field name="first_name"/>&#160;<field name="last_name"/>
+                                                    </strong>
+                                                    <div class="o_kanban_record_subtitle">
+                                                        <field name="specialty_id"/>
+                                                    </div>
+                                                    <div class="o_kanban_record_subtitle">
+                                                        <field name="license_number"/>
+                                                    </div>
+                                                    <div class="o_kanban_record_subtitle">
+                                                        <field name="license_issue_date"/>
+                                                    </div>
+                                                    <div class="o_kanban_record_bottom">
+                                                        <div class="oe_kanban_bottom_left">
+                                                            <span>ID:
+                                                                <field name="id"/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+
+                        <page string="Mentor Information" name="mentor_info" invisible="not is_intern or not mentor_id">
+                            <group>
+                                <group>
+                                    <field name="mentor_photo" widget="image" class="oe_avatar" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="mentor_full_name" readonly="1"/>
+                                    <field name="mentor_specialty_id" readonly="1"/>
+                                    <field name="mentor_license_number" readonly="1"/>
+                                    <field name="mentor_license_issue_date" readonly="1"/>
+                                </group>
+                            </group>
+                        </page>
+
                     </notebook>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_doctor_search" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.search</field>
+        <field name="model">hr.hospital.doctor</field>
+        <field name="arch" type="xml">
+            <search string="Search Doctors">
+                <filter string="Interns"
+                        name="filter_interns"
+                        domain="[('is_intern', '=', True)]"/>
+
+                <filter string="Mentors"
+                        name="filter_mentors"
+                        domain="[('is_intern', '=', False)]"/>
+
+                <separator/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="view_hr_hospital_doctor_kanban" model="ir.ui.view">
+        <field name="name">hr.hospital.doctor.kanban</field>
+        <field name="model">hr.hospital.doctor</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="specialty_id" class="o_kanban_small_column">
+                <field name="id"/>
+                <field name="full_name"/>
+                <field name="specialty_id"/>
+                <field name="image_128"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                            <div class="o_kanban_image">
+                                <img t-att-src="record.image_128.raw_value ?
+                                    '/web/image/hr.hospital.doctor/' + record.id.raw_value + '/image_128' :
+                                    '/web/static/img/placeholder.png'"
+                                     alt="Doctor Photo"
+                                     class="o_image_64_contain"/>
+                            </div>
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="full_name"/>
+                                </strong>
+                                <div class="o_kanban_record_subtitle">
+                                    <field name="specialty_id"/>
+                                </div>
+
+                                <div class="o_kanban_record_bottom mt-2">
+                                    <div class="oe_kanban_bottom_left">
+                                        <button name="action_create_visit_from_kanban"
+                                                type="object"
+                                                class="btn btn-primary btn-sm">
+                                            Book Visit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 
@@ -97,12 +222,7 @@
         <field name="name">Doctor</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">hr.hospital.doctor</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">list,form,kanban</field>
     </record>
-
-    <!--    <menuitem id="hr_hospital_menu_doctor"-->
-    <!--              action="action_hr_hospital_doctor_window"-->
-    <!--              parent="hr_hospital_patient_menu_doctor"-->
-    <!--              name="Doctor" sequence="200"/>-->
 
 </odoo>
