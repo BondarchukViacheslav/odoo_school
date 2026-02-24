@@ -34,6 +34,7 @@
         'wizard/hr_hospital_diagnosis_report_wizard_view.xml',
         'views/hr_hospital_menu.xml',
         'views/res_partner_views.xml',
+        'report/hr_hospital_doctor_report.xml',
     ],
     'demo': [
         'demo/res_users_demo.xml',
