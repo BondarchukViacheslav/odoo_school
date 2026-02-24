@@ -195,7 +195,7 @@
                                     <span class="fa fa-ellipsis-v"/>
                                 </a>
                                 <div class="dropdown-menu" role="menu">
-                                    <a t-if="widget.editable" role="menuitem" type="edit" class="dropdown-item">Edit</a>
+                                    <a t-if="widget.editable" role="menuitem" type="open" class="dropdown-item">Edit</a>
                                     <a t-if="widget.deletable" role="menuitem" type="delete" class="dropdown-item">
                                         Delete
                                     </a>
