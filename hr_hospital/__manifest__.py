@@ -16,7 +16,9 @@
 
     'data': [
 
+        'security/hr_hospital_group.xml',
         'security/ir.model.access.csv',
+        'security/hr_hospital_security.xml',
 
         'wizard/hr_hospital_reschedule_visit_wizard_view.xml',
         'views/hr_hospital_visit_view.xml',

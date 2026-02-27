@@ -23,7 +23,7 @@
             <form>
                 <header>
                     <button name="%(hr_hospital.hr_hospital_reschedule_visit_wizard_action)d"
-                            string="Перенести візит"
+                            string="Reschedule Visit"
                             type="action"
                             class="oe_highlight"
                             invisible="state != 'planned'"
