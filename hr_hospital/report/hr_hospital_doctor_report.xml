@@ -106,6 +106,18 @@
                             </table>
                         </div>
                     </div>
+                    <div class="footer">
+                        <div class="row text-muted"
+                             style="border-top: 1px solid black; font-size: 10px; padding-top: 5px;">
+                            <div class="col-6">
+                                Print:
+                                <span t-out="context_timestamp(datetime.datetime.now()).strftime('%d.%m.%Y %H:%M')"/>
+                            </div>
+                            <div class="col-6 text-end">
+                                <span t-field="res_company.city"/>
+                            </div>
+                        </div>
+                    </div>
                 </t>
             </t>
         </t>
