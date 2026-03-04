@@ -1,10 +1,14 @@
 from datetime import date
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 from odoo.exceptions import UserError, ValidationError
 
 
 class HRHospitalDoctor(models.Model):
+    """
+    Stores information about medical staff, including their specialty,
+    license details, and mentorship status for interns.
+    """
     _name = 'hr.hospital.doctor'
     _description = 'Doctor'
     # _rec_name = 'full_name'
@@ -92,9 +96,15 @@ class HRHospitalDoctor(models.Model):
     )
 
     def action_create_visit_from_kanban(self):
+        """
+        Open a wizard to create a new visit directly from the doctor's kanban view.
+        Sets the current doctor as the default for the new appointment.
+
+        :return: dict: an action to open the visit form view in a target window
+        """
         self.ensure_one()
         return {
-            'name': 'Quick Appointment',
+            'name': _('Quick Appointment'),
             'type': 'ir.actions.act_window',
             'res_model': 'hr.hospital.visit',
             'view_mode': 'form',
@@ -119,19 +129,33 @@ class HRHospitalDoctor(models.Model):
     # Перевірка що лікар не може бути ментором самому собі
     @api.constrains('mentor_id', 'is_intern')
     def _check_mentorship(self):
+        """
+        Validate mentorship logic for interns.
+        Ensures a doctor cannot mentor themselves and that an intern
+        cannot be assigned as a mentor for another doctor.
+
+        :raises ValidationError: if mentorship rules are violated
+        """
         for rec in self:
             if rec.is_intern and rec.mentor_id:
                 if rec.mentor_id == rec:
                     raise ValidationError(
-                        "A doctor cannot be a mentor to themselves!")
+                        _("A doctor cannot be a mentor to themselves!"))
 
                 if rec.mentor_id.is_intern:
                     raise ValidationError(
-                        "An intern cannot be a mentor for another intern!")
+                        _("An intern cannot be a mentor for another intern!"))
 
     # 5.3.Обмеження на видалення та архівування
     # Заборона архівування лікарів, що мають активні візити
     def write(self, vals):
+        """
+        Override write to prevent archiving doctors with active appointments.
+        If 'active' is set to False, checks for any visits in 'planned' state.
+
+        :param vals: dictionary of fields to update
+        :raises UserError: if the doctor has any scheduled (planned) visits
+        """
         if 'active' in vals and not vals['active']:
             for doctor in self:
                 active_visits = self.env['hr.hospital.visit'].search_count([
@@ -140,8 +164,8 @@ class HRHospitalDoctor(models.Model):
                 ])
                 if active_visits > 0:
                     raise UserError(
-                        "Cannot archive doctor %s "
-                        "because he has scheduled visits (%s)."
+                        _("Cannot archive doctor %s "
+                          "because he has scheduled visits (%s).")
                         % (doctor.display_name, active_visits))
         return super().write(vals)
 
@@ -149,6 +173,10 @@ class HRHospitalDoctor(models.Model):
     # Досвід роботи лікаря від дати видачі ліцензії
     @api.depends('license_issue_date')
     def _compute_experience(self):
+        """
+        Computes the doctor's years of experience based on the date
+        their license was issued.
+        """
         today = date.today()
         for rec in self:
             if rec.license_issue_date:
@@ -162,6 +190,11 @@ class HRHospitalDoctor(models.Model):
     # При виборі лікаря-інтерна - автоматично заповнювати ментора
     @api.onchange('is_intern')
     def _onchange_is_intern(self):
+        """
+        Automatically handle mentor assignment when the intern status changes.
+        If the doctor becomes an intern, it searches for a potential non-intern
+        mentor. If the status is unchecked, clears the mentor field.
+        """
         if self.is_intern:
             if not self.mentor_id:
                 potential_mentor = self.env['hr.hospital.doctor'].search([
@@ -178,10 +211,15 @@ class HRHospitalDoctor(models.Model):
     # відображати "Ім'я (Спеціальність)" _compute_display_name
     @api.depends('full_name', 'specialty_id.name')
     def _compute_display_name(self):
+        """
+        Compute a custom display name for the doctor.
+        Combines the doctor's full name with their specialty in parentheses.
+        Example: "John Doe (Cardiologist)"
+        """
         for rec in self:
             # Перевіряємо на наявність даних, щоб не було помилок з None
-            name = rec.full_name or "New Doctor"
-            specialty = rec.specialty_id.name or "No Specialty"
+            name = rec.full_name or _("New Doctor")
+            specialty = rec.specialty_id.name or _("No Specialty")
             rec.display_name = f"{name} ({specialty})"
 
     # 8.2. Динамічні домени через методи
@@ -189,7 +227,11 @@ class HRHospitalDoctor(models.Model):
     # Викликається з моделі візитів
     @api.model
     def get_available_doctors_domain(self, specialty_id, visit_datetime):
-
+        """
+        Calculates a dynamic domain for selecting doctors based on
+        the required specialty and their work schedule for the
+        requested visit time.
+        """
         if not specialty_id or not visit_datetime:
             return [('id', '=', 0)]
 
@@ -221,6 +263,12 @@ class HRHospitalDoctor(models.Model):
     # Лікарі за країною навчання
     @api.model
     def _get_doctors_by_country_domain(self, country_id):
+        """
+        Generate a dynamic domain to filter doctors by their country of study.
+
+        :param country_id: ID of the country (res.country) to filter by.
+        :return: A list containing a domain tuple or an empty list.
+        """
         if not country_id:
             return []
         return [('country_study_id', '=', country_id)]

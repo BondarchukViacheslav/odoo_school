@@ -1,4 +1,4 @@
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 
@@ -83,8 +83,8 @@ class HRHospitalDiagnosis(models.Model):
             if rec.approval_date and rec.visit_id.planned_date:
                 if rec.approval_date < rec.visit_id.planned_date:
                     raise ValidationError(
-                        "The approval date cannot be earlier "
-                        "than the visit date!"
+                        _("The approval date cannot be earlier "
+                          "than the visit date!")
                     )
 
     # 6.1. Автоматичні дії

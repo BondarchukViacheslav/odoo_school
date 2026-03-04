@@ -2,7 +2,7 @@
     <record id="hr_hospital_rule_visit_patient" model="ir.rule">
         <field name="name">Patient: see only own visits</field>
         <field name="model_id" ref="model_hr_hospital_visit"/>
-        <field name="groups" eval="[(4, ref('hr_hospital.group_hr_hospital_patient'))]"/>
+        <field name="groups" eval="[(4, ref('group_hr_hospital_patient'))]"/>
         <field name="domain_force">[('patient_id.user_id', '=', user.id)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="False"/>
@@ -13,7 +13,7 @@
     <record id="hr_hospital_rule_visit_intern" model="ir.rule">
         <field name="name">Intern: read/write only own visits</field>
         <field name="model_id" ref="model_hr_hospital_visit"/>
-        <field name="groups" eval="[(4, ref('hr_hospital.group_hr_hospital_intern'))]"/>
+        <field name="groups" eval="[(4, ref('group_hr_hospital_intern'))]"/>
         <field name="domain_force">[('doctor_id.user_id', '=', user.id)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -24,7 +24,7 @@
     <record id="hr_hospital_rule_visit_doctor_own_and_interns" model="ir.rule">
         <field name="name">Doctor: read/edit own and interns visits</field>
         <field name="model_id" ref="model_hr_hospital_visit"/>
-        <field name="groups" eval="[(4, ref('hr_hospital.group_hr_hospital_doctor'))]"/>
+        <field name="groups" eval="[(4, ref('group_hr_hospital_doctor'))]"/>
         <field name="domain_force">['|', ('doctor_id.user_id', '=', user.id), ('doctor_id.mentor_id.user_id', '=',
             user.id)]
         </field>
@@ -37,7 +37,7 @@
     <record id="hr_hospital_rule_visit_manager_all" model="ir.rule">
         <field name="name">Manager: see all visits</field>
         <field name="model_id" ref="model_hr_hospital_visit"/>
-        <field name="groups" eval="[(4, ref('hr_hospital.group_hr_hospital_manager'))]"/>
+        <field name="groups" eval="[(4, ref('group_hr_hospital_manager'))]"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>
@@ -48,7 +48,7 @@
     <record id="hr_hospital_rule_admin_all_data" model="ir.rule">
         <field name="name">Administrator: full access (including unlink) to all visits</field>
         <field name="model_id" ref="model_hr_hospital_visit"/>
-        <field name="groups" eval="[(4, ref('hr_hospital.group_hr_hospital_administrator'))]"/>
+        <field name="groups" eval="[(4, ref('group_hr_hospital_administrator'))]"/>
         <field name="domain_force">[(1, '=', 1)]</field>
         <field name="perm_read" eval="True"/>
         <field name="perm_write" eval="True"/>

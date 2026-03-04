@@ -1,7 +1,7 @@
 import re
 from datetime import date
-from odoo import models, fields, api
 from odoo.exceptions import ValidationError
+from odoo import models, fields, api, _
 
 
 class HRHospitalAbstractPerson(models.AbstractModel):
@@ -48,13 +48,13 @@ class HRHospitalAbstractPerson(models.AbstractModel):
         for rec in self:
             if rec.phone and not re.match(pattern, rec.phone):
                 raise ValidationError(
-                    "Invalid phone format! Use numbers, spaces, '-' or '+'.")
+                    _("Invalid phone format! Use numbers, spaces, '-' or '+'."))
 
     @api.constrains('email')
     def _check_email(self):
         for rec in self:
             if rec.email and not re.match(r"[^@]+@[^@]+\.[^@]+", rec.email):
-                raise ValidationError("Invalid email format!")
+                raise ValidationError(_("Invalid email format!"))
 
     # 6.2. Обчислювальні поля з залежностями (@api.depends)
     # Повне ім'я від окремих полів ПІБ

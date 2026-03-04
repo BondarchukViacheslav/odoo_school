@@ -1,5 +1,6 @@
 {
-    'name': 'Odoo school Hospital',
+    'name': 'HR Hospital',
+    'summary': "HR Hospital: Module documentation",
     'version': '19.0.1.2.0',
     'author': 'Bondarchuk V',
     'category': 'Customizations',

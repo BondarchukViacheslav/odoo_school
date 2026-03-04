@@ -231,7 +231,7 @@
                                         <button name="action_create_visit_from_kanban"
                                                 type="object"
                                                 class="btn btn-primary btn-sm">
-                                            <i class="fa fa-calendar-plus-o"/>Book Visit
+                                            <i class="fa fa-calendar-plus-o me-1"/>Book Visit
                                         </button>
                                     </div>
                                     <div class="oe_kanban_bottom_right">

@@ -1,4 +1,5 @@
-<odoo noupdate="1">
+<odoo>
+    <!--<odoo noupdate="1">-->
 
     <record id="user_doctor_house" model="res.users" context="{'no_reset_password': True}">
         <field name="name">Gregory House</field>
@@ -55,6 +56,48 @@
         <field name="login">intern_2@hospital.com</field>
         <field name="password">123456</field>
         <!--            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>-->
+    </record>
+
+    <!--    <record id="contact_p1" model="res.users" context="{'no_reset_password': True}">-->
+    <!--        <field name="name">Olena Petrenko</field>-->
+    <!--        <field name="login">contact_p1@hospital.com</field>-->
+    <!--        <field name="password">123456</field>-->
+    <!--    </record>-->
+
+    <!--    <record id="contact_p2" model="res.users" context="{'no_reset_password': True}">-->
+    <!--        <field name="name">Ihor Ivanov</field>-->
+    <!--        <field name="login">contact_p2@hospital.com</field>-->
+    <!--        <field name="password">123456</field>-->
+    <!--    </record>-->
+    <!--    -->
+    <!--    <record id="contact_p3" model="res.users" context="{'no_reset_password': True}">-->
+    <!--        <field name="name">Svitlana Sidorenko</field>-->
+    <!--        <field name="login">contact_p3@hospital.com</field>-->
+    <!--        <field name="password">123456</field>-->
+    <!--    </record>-->
+
+    <record id="user_patient_1" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Andrii Petrenko</field>
+        <field name="login">patient_1@hospital.com</field>
+        <field name="password">123456</field>
+    </record>
+
+    <record id="user_patient_2" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Maria Ivanova</field>
+        <field name="login">patient_2@hospital.com</field>
+        <field name="password">123456</field>
+    </record>
+
+    <record id="user_patient_3" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Dnytro Sidorenko</field>
+        <field name="login">patient_3@hospital.com</field>
+        <field name="password">123456</field>
+    </record>
+
+    <record id="user_patient_4" model="res.users" context="{'no_reset_password': True}">
+        <field name="name">Oksana Kovalchuk</field>
+        <field name="login">patient_4@hospital.com</field>
+        <field name="password">123456</field>
     </record>
 
 </odoo>

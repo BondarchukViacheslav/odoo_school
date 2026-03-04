@@ -1,11 +1,11 @@
-<odoo noupdate="1">
+<odoo>
+    <!--<odoo noupdate="1">-->
 
     <record id="contact_p1" model="hr.hospital.contact.person">
         <field name="first_name">Олена</field>
         <field name="last_name">Петренко</field>
         <field name="phone">+380671112233</field>
         <field name="gender">female</field>
-        <!--            <field name="relationship">Мати</field>-->
     </record>
 
     <record id="contact_p2" model="hr.hospital.contact.person">
@@ -13,7 +13,6 @@
         <field name="last_name">Іванов</field>
         <field name="phone">+380674445566</field>
         <field name="gender">male</field>
-        <!--            <field name="relationship">Чоловік</field>-->
     </record>
 
     <record id="contact_p3" model="hr.hospital.contact.person">
@@ -21,7 +20,6 @@
         <field name="last_name">Сидоренко</field>
         <field name="phone">+380677778899</field>
         <field name="gender">female</field>
-        <!--            <field name="relationship">Сестра</field>-->
     </record>
 
     <record id="patient_1" model="hr.hospital.patient">
@@ -31,6 +29,7 @@
         <field name="gender">male</field>
         <field name="personal_doctor_id" ref="doctor_house"/>
         <field name="contact_person_id" ref="contact_p1"/>
+        <field name="user_id" ref="user_patient_1"/>
     </record>
 
     <record id="patient_2" model="hr.hospital.patient">
@@ -40,6 +39,7 @@
         <field name="gender">female</field>
         <field name="personal_doctor_id" ref="doctor_wilson"/>
         <field name="contact_person_id" ref="contact_p2"/>
+        <field name="user_id" ref="user_patient_2"/>
     </record>
 
     <record id="patient_3" model="hr.hospital.patient">
@@ -49,6 +49,7 @@
         <field name="gender">male</field>
         <field name="personal_doctor_id" ref="doctor_foreman"/>
         <field name="contact_person_id" ref="contact_p3"/>
+        <field name="user_id" ref="user_patient_3"/>
     </record>
 
     <record id="patient_4" model="hr.hospital.patient">
@@ -56,6 +57,7 @@
         <field name="last_name">Ковальчук</field>
         <field name="birth_date">2000-01-15</field>
         <field name="personal_doctor_id" ref="doctor_chase"/>
+        <field name="user_id" ref="user_patient_4"/>
     </record>
 
     <record id="patient_5" model="hr.hospital.patient">
