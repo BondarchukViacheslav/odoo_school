@@ -1,5 +1,5 @@
 {
-    'name': 'Unique Partner Email',
+    'name': 'Unique Partner Email (V.Bondarchuk)',
     'version': '19.0.6.1.0',
     'summary': 'Prevents duplicate emails for partners',
     'author': 'Bondarchuk Viacheslav',
