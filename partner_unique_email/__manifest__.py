@@ -5,7 +5,7 @@
     'author': 'Bondarchuk Viacheslav',
     'category': 'Sales/CRM',
     'license': 'LGPL-3',
-    'website': 'https://github.com/BondarchukViacheslav/partner_unique_email',
+    'website': 'https://github.com/BondarchukViacheslav/vbond_partner_unique_email',
 
     'depends': [
         'base',
